@@ -1,0 +1,84 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+
+<style>
+    .imag{
+        height: 100px;
+        width: 100px;
+    
+    }
+</style>
+
+</head>
+<body>
+
+    <header>
+        <nav class="navbar ">
+          <span class="navbar-brand mb-0 h1">Admin panel</span>
+]          <a href="/admin/logout"><button>logout</button></a>
+        </nav>
+        </header>
+        
+        <div  style="height: 100vh; width: 100vw;" >
+        
+        <section class="container mt-4">
+          <h3>userinfo-table:</h3>
+        </section>
+        
+         <div class="container mt-4 " >
+        <table id="userTable">
+          <thead>
+            <tr>
+            
+              <th >username</th>
+              <th >profile</th>
+              <th >email</th>
+              
+              
+            </tr>
+          </thead>
+          <tbody>
+            <% users.forEach(function(user){ %>
+
+            <tr>
+              
+              <td>  <%= user.username %> </td>
+              <td>
+                <img class="imag" src="data:image/png;base64, <%= user.profile.toString('base64') %>" alt="User Profile">
+              </td>
+              <td>  <%= user.email %></td>
+            </tr>
+            <% }) %>
+
+          </tbody>
+        </table>
+        </div>
+        </div>
+        
+       <script>
+$(document).ready( function () {
+    $('#userTable').DataTable();
+} );
+</script>
+
+</body>
+</html>

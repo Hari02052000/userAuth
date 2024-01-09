@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <div>
+        <a href="/logout">Logout</a>
+        <p>Welcome <%= user.username %></p>
+            <img src="data:image/png;base64, <%= user.profile.toString('base64') %>" alt="User Profile">
+        <a href="/download-image"> click here to download image</a>
+    </div>
+
+</body>
+</html>
